@@ -25,22 +25,34 @@
 
   <script type="text/babel">
 
-    class Hello extends React.Component {
+    class Checkbox extends React.Component {
+      constructor (props) {
+        super(props)
+        this.state = {
+          checked: true
+        }
+        this.handleCheck = this.handleCheck.bind(this)
+      }
+
+      handleCheck () {
+        this.setState({
+          checked: !this.state.checked
+        })
+      }
+
       render () {
+        let msg = this.state.checked ? "checked" : "not checked"
         return (
           <div>
-            <h1>Hello { this.props.firstName }</h1>
-            <p>Learning React version { this.props.version }</p>
+            <input type="Checkbox" checked={this.state.checked} onChange={this.handleCheck} />
+            <p>This box is { msg }</p>
           </div>
         )
       }
     }
 
-    const HelloStateless1 = (props) => <h1>Hello { props.firstName }</h1>
-    const HelloStateless2 = ({ firstName }) => <h1>Hello { firstName }</h1>
-
     ReactDOM.render(
-      <HelloStateless2 firstName="Emily" version={16} />,
+      <Checkbox />,
       document.querySelector('#react-container')
     )
   </script>
