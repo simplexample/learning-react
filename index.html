@@ -25,18 +25,15 @@
 
   <script type="text/babel">
 
-    class Hello extends React.Component {
-      render () {
-        return (
-          <div className="fancy">
-            <h1 className="fancy__heading">Hello World</h1>
-          </div>
-        )
-      }
-    }
+    const Banner = () => (
+      <div className="fancy">
+        <h1 className="fancy__heading">Welcome to React</h1>
+        <p>Have fun!</p>
+      </div>
+    )
 
     ReactDOM.render(
-      <Hello />,
+      <Banner />,
       document.querySelector('#react-container')
     )
   </script>
